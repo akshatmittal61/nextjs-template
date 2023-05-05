@@ -1,67 +1,67 @@
 @import "./mixins";
 
 .row {
-    width: 100%;
-    max-height: 100%;
-    display: flex;
-    flex-wrap: wrap;
+	width: 100%;
+	max-height: 100%;
+	display: flex;
+	flex-wrap: wrap;
 
-    &>* {
-        width: 100%;
-    }
+	& > * {
+		width: 100%;
+	}
 }
 
 [class^="col"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
 
 @include responsive(bigDesktop) {
-    .row {
-        & .col-xlg {
-            @for $i from 1 through 100 {
-                &-#{$i} {
-                    width: #{$i}#{"%"};
-                }
-            }
-        }
-    }
+	.row {
+		& .col-xlg {
+			@for $i from 1 through 100 {
+				&-#{$i} {
+					width: #{$i}#{"%"};
+				}
+			}
+		}
+	}
 }
 
 @include responsive(desktop) {
-    .row {
-        & .col-lg {
-            @for $i from 1 through 100 {
-                &-#{$i} {
-                    width: #{$i}#{"%"};
-                }
-            }
-        }
-    }
+	.row {
+		& .col-lg {
+			@for $i from 1 through 100 {
+				&-#{$i} {
+					width: #{$i}#{"%"};
+				}
+			}
+		}
+	}
 }
 
 @include responsive(tablet) {
-    .row {
-        & .col-md {
-            @for $i from 1 through 100 {
-                &-#{$i} {
-                    width: #{$i}#{"%"};
-                }
-            }
-        }
-    }
+	.row {
+		& .col-md {
+			@for $i from 1 through 100 {
+				&-#{$i} {
+					width: #{$i}#{"%"};
+				}
+			}
+		}
+	}
 }
 
 @include responsive(phone) {
-    .row {
-        & .col-sm {
-            @for $i from 1 through 100 {
-                &-#{$i} {
-                    width: #{$i}#{"%"};
-                }
-            }
-        }
-    }
+	.row {
+		& .col-sm {
+			@for $i from 1 through 100 {
+				&-#{$i} {
+					width: #{$i}#{"%"};
+				}
+			}
+		}
+	}
 }
