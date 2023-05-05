@@ -1,0 +1,16 @@
+@import './config/index.scss';
+
+// make the scrollbar transparent
+::-webkit-scrollbar {
+    width: 1.5px;
+    height: 1.5px;
+    background: transparent;
+
+    &-thumb {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    &-track {
+        background: transparent;
+    }
+}

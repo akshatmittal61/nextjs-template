@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    scroll-behavior: smooth;
+}
+
+:root,
+:root::before,
+:root::after {
+    --transition-time: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-poppins);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.dispn {
+    display: none !important;
+}
