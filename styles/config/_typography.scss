@@ -58,4 +58,100 @@
 
     --font-open-sans: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
         Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --font-alice: Alice, 'Times New Roman', Times, serif;
+}
+
+@mixin typography($type: body, $size: md) {
+    @if $type ==heading {
+        @if $size ==h1 {
+            font-family: var(--font-alice);
+            font-size: 80px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+        }
+
+        @else if $size ==h2 {
+            font-family: var(--font-alice);
+            font-size: 61px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+        }
+
+        @else if $size ==h3 {
+            font-family: var(--font-alice);
+            font-size: 47px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+        }
+
+        @else if $size ==h4 {
+            font-family: var(--font-alice);
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+        }
+
+        @else if $size ==h5 {
+            font-family: var(--font-alice);
+            font-size: 27px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+        }
+    }
+
+    @else if $type ==body {
+        @if $size ==lg {
+            font-family: var(--font-noto-sans);
+            font-size: 21px;
+            font-weight: 500;
+            line-height: 170%;
+            letter-spacing: -0.01em;
+        }
+
+        @else if $size ==md {
+            font-family: var(--font-noto-sans);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 170%;
+            letter-spacing: -0.01em;
+        }
+    }
+
+    @else if $type ==btn {
+        @if $size ==md {
+            font-family: var(--font-noto-sans);
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 120%;
+        }
+
+        @else if $size ==lg {
+            font-family: var(--font-noto-sans);
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 110%;
+        }
+    }
+}
+
+:root,
+:root::before,
+:root::after {
+    --font-heading-h1: @include typography(heading, h1);
+    --font-heading-h2: @include typography(heading, h2);
+    --font-heading-h3: @include typography(heading, h3);
+    --font-heading-h4: @include typography(heading, h4);
+    --font-heading-h5: @include typography(heading, h5);
+
+    --font-body-lg: @include typography(body, lg);
+    --font-body-md: @include typography(body, md);
+
+    --font-btn-lg: @include typography(btn, lg);
+    --font-btn-md: @include typography(btn, md);
 }
