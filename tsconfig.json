@@ -14,9 +14,20 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
+		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./*"]
-		}
+		},
+		"plugins": [
+			{
+				"name": "next-typescript",
+				"version": "0.0.1",
+				"transformers": ["next-typescript-transformer"],
+				"options": {
+					"nextConfigPath": "next.config.js"
+				}
+			}
+		]
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
