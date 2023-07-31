@@ -1,150 +1,424 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks:wght@300;400;500;600;700&display=swap");
+@import "@/styles/config/mixins";
 
-:root,
-:root::before,
-:root::after {
-	--font-poppins: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-	--font-lato: Lato, Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
+/* 
+    Font Family
+    - Red Hat Display
+    - Red Hat Text
 
-	--font-roboto: Roboto, Poppins, -apple-system, BlinkMacSystemFont,
-		"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-		"Helvetica Neue", sans-serif;
+    Font Type
+    - Heading
+    - Body
 
-	--font-montserrat: Montserrat, Poppins, -apple-system, BlinkMacSystemFont,
-		"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-		"Helvetica Neue", sans-serif;
+    Font Variant
+    - Heading
+        - Display
+        - Subtitle
+        - Title 1
+        - Title 2
+        - Title 3
+        - Title 4
+        - Eyebrow
+    - Body
+        - Extra Large
+        - Large
+        - Medium
+        - Small
+    
+    Font Format
+    - Body
+        - Regular
+        - Medium
+        - Bold
+        - Underlined
+        - Italic
+        - Bold Italic
+ */
 
-	--font-raleway: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
+$types: (heading, body);
 
-	--font-manrope: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
+$variants: (
+	display,
+	subtitle,
+	title-1,
+	title-2,
+	title-3,
+	title-4,
+	eyebrow,
+	extra-large,
+	large,
+	medium,
+	small
+);
 
-	--font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+$formats: (regular, medium, bold, underlined, italic, bold-italic);
 
-	--font-quicksand: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
-
-	--font-cabin: "Cabin", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-	--font-roboto: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
-
-	--font-lexend: "Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
-
-	--font-gugi: "Gugi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-	--font-open-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
-
-	--font-alice: Alice, "Times New Roman", Times, serif;
-}
-
-@mixin typography($type: body, $size: md) {
+@mixin typography($type: body, $variant: normal, $format: regular) {
 	@if $type ==heading {
-		@if $size ==h1 {
-			font-family: var(--font-alice);
-			font-size: 80px;
+		font-family: var(--font-red-hat-display);
+		color: var(--color-black);
+
+		@include theme(light) {
+			color: var(--color-black);
+		}
+
+		@include theme(dark) {
+			color: var(--color-white);
+		}
+
+		@if $variant ==display {
+			font-size: 42px;
+			font-weight: 700;
+			line-height: 50px;
+
+			@include responsive(phone) {
+				font-size: 28px;
+				line-height: 32px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 32px;
+				line-height: 40px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 36px;
+				line-height: 44px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 42px;
+				line-height: 50px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 48px;
+				line-height: 56px;
+			}
+		} @else if $variant ==subtitle {
+			font-size: 22px;
 			font-weight: 400;
-			line-height: 120%;
-			letter-spacing: -0.02em;
-		} @else if $size ==h2 {
-			font-family: var(--font-alice);
-			font-size: 61px;
-			font-weight: 400;
-			line-height: 120%;
-			letter-spacing: -0.02em;
-		} @else if $size ==h3 {
-			font-family: var(--font-alice);
-			font-size: 47px;
-			font-weight: 400;
-			line-height: 120%;
-			letter-spacing: -0.02em;
-		} @else if $size ==h4 {
-			font-family: var(--font-alice);
-			font-size: 36px;
-			font-weight: 400;
-			line-height: 120%;
-			letter-spacing: -0.02em;
-		} @else if $size ==h5 {
-			font-family: var(--font-alice);
-			font-size: 27px;
-			font-weight: 400;
-			line-height: 120%;
-			letter-spacing: -0.02em;
+			line-height: 28px;
+
+			@include responsive(phone) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 22px;
+				line-height: 28px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 22px;
+				line-height: 28px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 28px;
+				line-height: 32px;
+			}
+		} @else if $variant ==title-1 {
+			font-size: 28px;
+			font-weight: 700;
+			line-height: 32px;
+
+			@include responsive(phone) {
+				font-size: 20px;
+				line-height: 28px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 20px;
+				line-height: 28px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 24px;
+				line-height: 30px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 28px;
+				line-height: 32px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 32px;
+				line-height: 40px;
+			}
+		} @else if $variant ==title-2 {
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 28px;
+
+			@include responsive(phone) {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 22px;
+				line-height: 28px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 24px;
+				line-height: 30px;
+			}
+		} @else if $variant ==title-3 {
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 20px;
+
+			@include responsive(phone) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 22px;
+				line-height: 28px;
+			}
+		} @else if $variant ==title-4 {
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 20px;
+
+			@include responsive(phone) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 16px;
+				line-height: 20px;
+			}
+		} @else if $variant ==eyebrow {
+			font-size: 12px;
+			font-weight: 600;
+			line-height: 16px;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+
+			@include responsive(phone) {
+				font-size: 10px;
+				line-height: 13px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 14px;
+				line-height: 20px;
+			}
 		}
 	} @else if $type ==body {
-		@if $size ==lg {
-			font-family: var(--font-noto-sans);
-			font-size: 21px;
-			font-weight: 500;
-			line-height: 170%;
-			letter-spacing: -0.01em;
-		} @else if $size ==md {
-			font-family: var(--font-noto-sans);
-			font-size: 16px;
-			font-weight: 500;
-			line-height: 170%;
-			letter-spacing: -0.01em;
+		font-family: var(--font-red-hat-text);
+		color: var(--color-black);
+
+		@include theme(light) {
+			color: var(--color-black);
 		}
-	} @else if $type ==btn {
-		@if $size ==md {
-			font-family: var(--font-noto-sans);
-			font-weight: 600;
+
+		@include theme(dark) {
+			color: var(--color-white);
+		}
+
+		@if $variant ==extra-large {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 24px;
+
+			@include responsive(phone) {
+				font-size: 16px;
+				line-height: 24px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 16px;
+				line-height: 24px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 18px;
+				line-height: 24px;
+			}
+		} @else if $variant ==large {
 			font-size: 16px;
-			line-height: 120%;
-		} @else if $size ==lg {
-			font-family: var(--font-noto-sans);
+			font-weight: 400;
+			line-height: 24px;
+
+			@include responsive(phone) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 16px;
+				line-height: 24px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 16px;
+				line-height: 24px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 16px;
+				line-height: 24px;
+			}
+		} @else if $variant ==medium {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+
+			@include responsive(phone) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 14px;
+				line-height: 20px;
+			}
+		} @else if $variant ==small {
+			font-size: 12px;
+			font-weight: 400;
+			line-height: 16px;
+
+			@include responsive(phone) {
+				font-size: 10px;
+				line-height: 13px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 10px;
+				line-height: 13px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(large-desktop) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			@include responsive(extra-large-desktop) {
+				font-size: 12px;
+				line-height: 16px;
+			}
+		}
+
+		@if $format ==regular {
+			font-style: normal;
+		} @else if $format ==medium {
 			font-weight: 500;
-			font-size: 21px;
-			line-height: 110%;
+		} @else if $format ==bold {
+			font-weight: 700;
+		} @else if $format ==underlined {
+			text-decoration: underline;
+			font-weight: 500;
+		} @else if $format ==italic {
+			font-style: italic;
+		} @else if $format ==bold-italic {
+			font-weight: 700;
+			font-style: italic;
 		}
 	}
-}
-
-:root,
-:root::before,
-:root::after {
-	--font-heading-h1: @include typography(heading, h1);
-	--font-heading-h2: @include typography(heading, h2);
-	--font-heading-h3: @include typography(heading, h3);
-	--font-heading-h4: @include typography(heading, h4);
-	--font-heading-h5: @include typography(heading, h5);
-
-	--font-body-lg: @include typography(body, lg);
-	--font-body-md: @include typography(body, md);
-
-	--font-btn-lg: @include typography(btn, lg);
-	--font-btn-md: @include typography(btn, md);
 }

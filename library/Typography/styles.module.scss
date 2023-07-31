@@ -1,0 +1,17 @@
+@import "@/styles/config/typography";
+
+.typography {
+	@each $type in $types {
+		@each $variant in $variants {
+			@each $format in $formats {
+				&-#{$type}-#{$variant}-#{$format} {
+					@include typography($type, $variant, $format);
+				}
+
+				&-#{$type}-#{$variant} {
+					@include typography($type, $variant, $format);
+				}
+			}
+		}
+	}
+}

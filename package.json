@@ -10,9 +10,9 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"prepare": "husky install",
-		"test": "jest",
-		"test:watch": "jest --watch",
-		"test:coverage": "jest --coverage"
+		"test": "jest --passWithNoTests",
+		"test:watch": "jest --watch --passWithNoTests",
+		"test:coverage": "jest --coverage --passWithNoTests"
 	},
 	"dependencies": {
 		"@types/jsonwebtoken": "^9.0.2",

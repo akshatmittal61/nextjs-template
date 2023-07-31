@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 interface ApiRequest extends NextApiRequest {
-	user: {
+	user?: {
 		id: string;
 	};
 }
 
 interface ApiResponse extends NextApiResponse {
-	user: {
+	user?: {
 		id: string;
 	};
 }

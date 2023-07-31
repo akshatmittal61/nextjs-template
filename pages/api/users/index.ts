@@ -2,6 +2,7 @@ import { RESPONSE_MESSAGES } from "@/constants/enum";
 import { getAllUsers } from "@/controllers/user";
 import connectDB from "@/db";
 import { ApiRequest, ApiResponse } from "@/interfaces/api";
+import authMiddleware from "@/middleware/auth";
 
 const handler = async (req: ApiRequest, res: ApiResponse) => {
 	try {
@@ -9,7 +10,7 @@ const handler = async (req: ApiRequest, res: ApiResponse) => {
 		const { method } = req;
 		switch (method) {
 			case "GET":
-				return getAllUsers(req, res);
+				return authMiddleware(getAllUsers)(req, res);
 			default:
 				res.setHeader("Allow", ["GET"]);
 				return res.status(405).end(`Method ${method} Not Allowed`);

@@ -1,35 +1,47 @@
 @mixin responsive($breakpoint) {
 	@if $breakpoint ==phone {
-		@media (max-width: 540px) {
+		@media (min-width: 320px) and (max-width: 671.5px) {
 			@content;
 		}
 	}
 
 	@if $breakpoint ==tablet {
-		@media (max-width: 768px) {
+		@media (min-width: 672px) and (max-width: 1055.5px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint ==phone-landscape {
+		@media (max-width: 900px) and (orientation: landscape) {
 			@content;
 		}
 	}
 
 	@if $breakpoint ==desktop {
-		@media (max-width: 992px) {
+		@media (min-width: 1056px) and (max-width: 1311.5px) {
 			@content;
 		}
 	}
 
-	@if $breakpoint ==bigDesktop {
-		@media (min-width: 1250px) {
+	@if $breakpoint ==large-desktop {
+		@media (min-width: 1312px) and (max-width: 1583.4px) {
 			@content;
 		}
 	}
 
-	@if $breakpoint ==verticalScreens {
+	@if $breakpoint ==extra-large-desktop {
+		@media (min-width: 1584px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint ==vertical-screens {
 		@media (max-height: 540px) {
 			@content;
 		}
 	}
 
-	@if $breakpoint ==verticalScreenModal {
+	@if $breakpoint ==vertical-screen-modal {
 		@media (max-height: 768px) {
 			@content;
 		}
@@ -45,6 +57,28 @@
 		@media (prefers-color-scheme: dark) {
 			@content;
 		}
+	}
+}
+
+@mixin theme($theme) {
+	// if body has no data-theme attribute, then apply the styles
+
+	@if $theme ==light {
+		body:not([data-theme]) & {
+			@content;
+		}
+	}
+
+	@if $theme ==light {
+		body[data-theme="light"] & {
+			@content;
+		}
+	} @else if $theme ==dark {
+		body[data-theme="dark"] & {
+			@content;
+		}
+	} @else {
+		@content;
 	}
 }
 
@@ -64,4 +98,31 @@
 	line-height: $line-height;
 	color: $color;
 	letter-spacing: $letter-spacing;
+}
+
+@mixin hide-scrollbar {
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+
+		&-thumb {
+			background: transparent !important;
+		}
+	}
+}
+
+@mixin init-button {
+	all: unset;
+	box-sizing: border-box;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	touch-action: manipulation;
+	user-select: none;
+	transition: all 0.3s ease-in-out;
 }
