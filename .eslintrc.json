@@ -25,7 +25,6 @@
 			}
 		],
 		"no-use-before-define": "error",
-		"linebreak-style": ["warn", "unix"],
 		"quotes": ["error", "double"],
 		"semi": ["error", "always"]
 	}
