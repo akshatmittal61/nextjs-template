@@ -18,7 +18,7 @@
 	height: 100%;
 }
 
-@include responsive(bigDesktop) {
+@include responsive(extra-large-desktop) {
 	.row {
 		& .col-xlg {
 			@for $i from 1 through 100 {
@@ -30,7 +30,7 @@
 	}
 }
 
-@include responsive(desktop) {
+@include responsive(large-desktop) {
 	.row {
 		& .col-lg {
 			@for $i from 1 through 100 {
@@ -42,7 +42,7 @@
 	}
 }
 
-@include responsive(tablet) {
+@include responsive(desktop) {
 	.row {
 		& .col-md {
 			@for $i from 1 through 100 {
@@ -54,9 +54,21 @@
 	}
 }
 
-@include responsive(phone) {
+@include responsive(tablet) {
 	.row {
 		& .col-sm {
+			@for $i from 1 through 100 {
+				&-#{$i} {
+					width: #{$i}#{"%"};
+				}
+			}
+		}
+	}
+}
+
+@include responsive(phone) {
+	.row {
+		& .col-xsm {
 			@for $i from 1 through 100 {
 				&-#{$i} {
 					width: #{$i}#{"%"};
