@@ -4,6 +4,9 @@ $colors: "blue", "red", "yellow", "green", "white", "black", "purple", "indigo",
 :root,
 :root::before,
 :root::after {
+	--black: #000000;
+	--white: #ffffff;
+
 	--red: #f44336;
 	--red-100: #ffcdd2;
 	--red-400: #ef5350;
@@ -97,4 +100,12 @@ $colors: "blue", "red", "yellow", "green", "white", "black", "purple", "indigo",
 	--color-text-heading: #212121;
 	--color-white: #f5f7fa;
 	--color-black: #1a1a1a;
+}
+
+:root,
+:root::before,
+:root::after {
+	--theme-black: var(--black);
+	--theme-white: var(--white);
+	--theme-primary: var(--blue);
 }

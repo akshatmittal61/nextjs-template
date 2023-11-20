@@ -1,0 +1,137 @@
+@import "@/styles/config/mixins";
+@import "@/styles/config/typography";
+
+.btn {
+	all: unset;
+	box-sizing: border-box;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+	border-radius: 500px;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	flex: 0 0 auto;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.2s ease-in-out;
+	color: var(--theme-black);
+	border: 1px solid var(--theme-black);
+
+	&--variant {
+		&--filled {
+			background-color: var(--theme-primary);
+			color: var(--theme-white);
+			border-color: var(--theme-primary);
+		}
+
+		&--outlined {
+			background-color: transparent;
+			color: var(--theme-black);
+			border: 1px solid var(--theme-black);
+		}
+
+		&--text {
+			background-color: transparent;
+			color: var(--theme-black);
+			border: 1px solid transparent;
+		}
+	}
+
+	&--size {
+		&--small {
+			padding: 12px 24px;
+			@include typography(s, bold);
+		}
+
+		&--medium {
+			padding: 14px 28px;
+			@include typography(md, regular);
+		}
+
+		&--large {
+			padding: 16px 30px;
+			@include typography(xl, regular);
+		}
+	}
+
+	&__icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&--size {
+		&--medium {
+			.btn__icon {
+				svg,
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
+
+		&--small {
+			.btn__icon {
+				svg,
+				img {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+
+		&--large {
+			.btn__icon {
+				svg,
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
+	}
+
+	&__loader {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		display: flex;
+		flex: 0 0 auto;
+		border: 3px solid transparent;
+		animation: spin 1s linear infinite;
+		border-right-color: var(--color-white);
+		border-bottom-color: var(--color-white);
+	}
+
+	&--size--small &__loader {
+		width: 17px;
+		height: 17px;
+	}
+
+	&--size--medium &__loader {
+		width: 19px;
+		height: 19px;
+	}
+
+	&--size--large &__loader {
+		width: 23px;
+		height: 23px;
+	}
+
+	&--disabled {
+		cursor: not-allowed;
+		opacity: 0.4;
+	}
+
+	&--loading {
+		cursor: not-allowed;
+	}
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
