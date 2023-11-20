@@ -1,28 +1,30 @@
-import { TypographyProps } from "./types";
-import styles from "./styles.module.scss";
-import { stylesConfig } from "@/utils/functions";
 import React from "react";
+import { TypographyProps } from "./types";
+import { stylesConfig } from "@/utils/functions";
+import styles from "./styles.module.scss";
 
-const classes = stylesConfig(styles, "typography-");
+const classes = stylesConfig(styles, "typography");
 
 const Typography: React.FC<TypographyProps> = ({
-	type = "body",
-	variant = "medium",
-	format = "regular",
 	children,
-	className,
+	family = "josefin-sans",
+	size = "md",
+	weight = "regular",
+	as = "span",
+	className = "",
 	...rest
-}: TypographyProps) => {
+}) => {
+	const Component = as || "span";
+
 	return (
-		<span
-			className={[
-				classes([type, variant, format].join("-")),
-				className,
-			].join(" ")}
+		<Component
+			className={
+				classes("", `--${family}-${size}-${weight}`) + ` ${className}`
+			}
 			{...rest}
 		>
 			{children}
-		</span>
+		</Component>
 	);
 };
 

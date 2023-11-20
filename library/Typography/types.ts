@@ -1,68 +1,34 @@
-/* 
-    Font Type
-    - Heading
-    - Body
-
-    Font Variant
-    - Heading
-        - Display
-        - Subtitle
-        - Title 1
-        - Title 2
-        - Title 3
-        - Title 4
-        - Eyebrow
-    - Body
-        - Extra Large
-        - Large
-        - Medium
-        - Small
-    
-    Font Format
-    - Body
-        - Regular
-        - Medium
-        - Bold
-        - Underlined
-        - Italic
-        - Bold Italic
- */
-
 import React from "react";
 
-export type FontType = "heading" | "body";
-export type FontVariant<T extends FontType> = T extends "heading"
-	?
-			| "display"
-			| "subtitle"
-			| "title-1"
-			| "title-2"
-			| "title-3"
-			| "title-4"
-			| "eyebrow"
-	: "extra-large" | "large" | "medium" | "small";
-export type FontFormat<T extends FontType> = T extends "heading"
-	? never
-	: "regular" | "medium" | "bold" | "underlined" | "italic" | "bold-italic";
+// All the font definitions can be found in @/styles/config/_typography.scss
 
-export interface FontHeading {
-	type: "heading";
-	variant: FontVariant<"heading">;
-	format?: FontFormat<"heading">;
-}
+export type FontFamily = "josefin-sans" | "prosto-one";
 
-export interface FontBody {
-	type: "body";
-	variant: FontVariant<"body">;
-	format?: FontFormat<"body">;
-}
+export type FontSize =
+	| "xxs"
+	| "xs"
+	| "sm"
+	| "s"
+	| "md"
+	| "lg"
+	| "xl"
+	| "xxl"
+	| "xxxl"
+	| "head-1"
+	| "head-2"
+	| "head-3";
 
-export type Font = FontHeading | FontBody;
+export type FontWeight = "light" | "regular" | "medium" | "bold" | "extra-bold";
 
-export type TypographyProps = Font & {
+export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
+	/** The font family to use */
+	family?: FontFamily;
+	/** The font size to use */
+	size?: FontSize;
+	/** The font weight to use */
+	weight?: FontWeight;
+	/** The text to display */
 	children: React.ReactNode;
-	className?: string;
-	style?: React.CSSProperties;
-	title?: string;
-	onClick?: () => void;
-};
+	/** Node to use **/
+	as?: React.ElementType;
+}

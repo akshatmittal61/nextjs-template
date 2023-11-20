@@ -1,424 +1,86 @@
-@import "@/styles/config/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prosto+One&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+// $name: name of the font family var(--font-josefin-sans)
+// $size: size of the font (xxs, xs, sm, md, lg, xl, xxl, xxxl, head-1, head-2, head-3)
+// $weight: weight of the font (light, regular, medium, bold)
 
-/* 
-    Font Family
-    - Red Hat Display
-    - Red Hat Text
+$font-families: ("josefin-sans", "prosto-one");
 
-    Font Type
-    - Heading
-    - Body
-
-    Font Variant
-    - Heading
-        - Display
-        - Subtitle
-        - Title 1
-        - Title 2
-        - Title 3
-        - Title 4
-        - Eyebrow
-    - Body
-        - Extra Large
-        - Large
-        - Medium
-        - Small
-    
-    Font Format
-    - Body
-        - Regular
-        - Medium
-        - Bold
-        - Underlined
-        - Italic
-        - Bold Italic
- */
-
-$types: (heading, body);
-
-$variants: (
-	display,
-	subtitle,
-	title-1,
-	title-2,
-	title-3,
-	title-4,
-	eyebrow,
-	extra-large,
-	large,
-	medium,
-	small
+$font-sizes: (
+	"xxs",
+	"xs",
+	"sm",
+	"s",
+	"md",
+	"lg",
+	"xl",
+	"xxl",
+	"xxxl",
+	"head-1",
+	"head-2",
+	"head-3"
 );
 
-$formats: (regular, medium, bold, underlined, italic, bold-italic);
+$font-weights: ("light", "regular", "medium", "bold", "extra-bold");
 
-@mixin typography($type: body, $variant: normal, $format: regular) {
-	@if $type ==heading {
-		font-family: var(--font-red-hat-display);
-		color: var(--color-black);
+@mixin typography($size: "md", $weight: "regular", $name: "josefin-sans") {
+	// font families
 
-		@include theme(light) {
-			color: var(--color-black);
-		}
+	@if $name == "josefin-sans" {
+		font-family: "Josefin Sans", sans-serif;
+	} @else if $name == "prosto-one" {
+		font-family: "Prosto One", cursive;
+	} @else {
+		font-family: "Josefin Sans", sans-serif;
+	}
 
-		@include theme(dark) {
-			color: var(--color-white);
-		}
+	line-height: 120%;
+	vertical-align: middle;
 
-		@if $variant ==display {
-			font-size: 42px;
-			font-weight: 700;
-			line-height: 50px;
+	// font sizes
 
-			@include responsive(phone) {
-				font-size: 28px;
-				line-height: 32px;
-			}
+	@if $size == "xxs" {
+		font-size: 8px;
+	} @else if $size == "xs" {
+		font-size: 10px;
+	} @else if $size == "sm" {
+		font-size: 12px;
+	} @else if $size == "s" {
+		font-size: 14px;
+	} @else if $size == "md" {
+		font-size: 16px;
+	} @else if $size == "lg" {
+		font-size: 18px;
+	} @else if $size == "xl" {
+		font-size: 20px;
+	} @else if $size == "xxl" {
+		font-size: 24px;
+	} @else if $size == "xxxl" {
+		font-size: 28px;
+	} @else if $size == "head-1" {
+		font-size: 64px;
+	} @else if $size == "head-2" {
+		font-size: 40px;
+	} @else if $size == "head-3" {
+		font-size: 32px;
+	} @else {
+		font-size: 16px;
+	}
 
-			@include responsive(tablet) {
-				font-size: 32px;
-				line-height: 40px;
-			}
+	// font weights
 
-			@include responsive(desktop) {
-				font-size: 36px;
-				line-height: 44px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 42px;
-				line-height: 50px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 48px;
-				line-height: 56px;
-			}
-		} @else if $variant ==subtitle {
-			font-size: 22px;
-			font-weight: 400;
-			line-height: 28px;
-
-			@include responsive(phone) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 22px;
-				line-height: 28px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 22px;
-				line-height: 28px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 28px;
-				line-height: 32px;
-			}
-		} @else if $variant ==title-1 {
-			font-size: 28px;
-			font-weight: 700;
-			line-height: 32px;
-
-			@include responsive(phone) {
-				font-size: 20px;
-				line-height: 28px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 20px;
-				line-height: 28px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 24px;
-				line-height: 30px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 28px;
-				line-height: 32px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 32px;
-				line-height: 40px;
-			}
-		} @else if $variant ==title-2 {
-			font-size: 22px;
-			font-weight: 700;
-			line-height: 28px;
-
-			@include responsive(phone) {
-				font-size: 16px;
-				line-height: 20px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 22px;
-				line-height: 28px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 24px;
-				line-height: 30px;
-			}
-		} @else if $variant ==title-3 {
-			font-size: 16px;
-			font-weight: 700;
-			line-height: 20px;
-
-			@include responsive(phone) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 16px;
-				line-height: 20px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 16px;
-				line-height: 20px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 16px;
-				line-height: 20px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 22px;
-				line-height: 28px;
-			}
-		} @else if $variant ==title-4 {
-			font-size: 14px;
-			font-weight: 700;
-			line-height: 20px;
-
-			@include responsive(phone) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 16px;
-				line-height: 20px;
-			}
-		} @else if $variant ==eyebrow {
-			font-size: 12px;
-			font-weight: 600;
-			line-height: 16px;
-			text-transform: uppercase;
-			letter-spacing: 0.06em;
-
-			@include responsive(phone) {
-				font-size: 10px;
-				line-height: 13px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-		}
-	} @else if $type ==body {
-		font-family: var(--font-red-hat-text);
-		color: var(--color-black);
-
-		@include theme(light) {
-			color: var(--color-black);
-		}
-
-		@include theme(dark) {
-			color: var(--color-white);
-		}
-
-		@if $variant ==extra-large {
-			font-size: 18px;
-			font-weight: 400;
-			line-height: 24px;
-
-			@include responsive(phone) {
-				font-size: 16px;
-				line-height: 24px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 16px;
-				line-height: 24px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 18px;
-				line-height: 24px;
-			}
-		} @else if $variant ==large {
-			font-size: 16px;
-			font-weight: 400;
-			line-height: 24px;
-
-			@include responsive(phone) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 16px;
-				line-height: 24px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 16px;
-				line-height: 24px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 16px;
-				line-height: 24px;
-			}
-		} @else if $variant ==medium {
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 20px;
-
-			@include responsive(phone) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 14px;
-				line-height: 20px;
-			}
-		} @else if $variant ==small {
-			font-size: 12px;
-			font-weight: 400;
-			line-height: 16px;
-
-			@include responsive(phone) {
-				font-size: 10px;
-				line-height: 13px;
-			}
-
-			@include responsive(tablet) {
-				font-size: 10px;
-				line-height: 13px;
-			}
-
-			@include responsive(desktop) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(large-desktop) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-
-			@include responsive(extra-large-desktop) {
-				font-size: 12px;
-				line-height: 16px;
-			}
-		}
-
-		@if $format ==regular {
-			font-style: normal;
-		} @else if $format ==medium {
-			font-weight: 500;
-		} @else if $format ==bold {
-			font-weight: 700;
-		} @else if $format ==underlined {
-			text-decoration: underline;
-			font-weight: 500;
-		} @else if $format ==italic {
-			font-style: italic;
-		} @else if $format ==bold-italic {
-			font-weight: 700;
-			font-style: italic;
-		}
+	@if $weight == "light" {
+		font-weight: 300;
+	} @else if $weight == "regular" {
+		font-weight: 400;
+	} @else if $weight == "medium" {
+		font-weight: 500;
+	} @else if $weight == "bold" {
+		font-weight: 600;
+	} @else if $weight == "extra-bold" {
+		font-weight: 700;
+	} @else {
+		font-weight: 400;
 	}
 }

@@ -1,15 +1,11 @@
 @import "@/styles/config/typography";
 
 .typography {
-	@each $type in $types {
-		@each $variant in $variants {
-			@each $format in $formats {
-				&-#{$type}-#{$variant}-#{$format} {
-					@include typography($type, $variant, $format);
-				}
-
-				&-#{$type}-#{$variant} {
-					@include typography($type, $variant, $format);
+	@each $family in $font-families {
+		@each $size in $font-sizes {
+			@each $weight in $font-weights {
+				&--#{$family}-#{$size}-#{$weight} {
+					@include typography($size, $weight, $family);
 				}
 			}
 		}
