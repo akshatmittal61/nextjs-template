@@ -1,0 +1,12 @@
+version: "3"
+services:
+    nextjs-app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000" # Map container port to the host
+        volumes:
+            - .:/usr/src/app # Mount local directory to the container
+#        env_file:
+#            - .env # Load environment variables from the .env file
