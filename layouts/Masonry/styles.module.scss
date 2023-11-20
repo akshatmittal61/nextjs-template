@@ -1,0 +1,58 @@
+@import "@/styles/config/mixins";
+
+.masonry {
+	list-style: none;
+	column-gap: 0;
+	column-count: 3;
+}
+
+.masonry-item {
+	width: 100%;
+	height: auto;
+	break-inside: avoid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	overflow: hidden;
+}
+
+@include responsive(phone) {
+	@for $i from 1 through 10 {
+		.masonry-xsm-#{$i} {
+			column-count: #{$i};
+		}
+	}
+}
+
+@include responsive(tablet) {
+	@for $i from 1 through 10 {
+		.masonry-sm-#{$i} {
+			column-count: #{$i};
+		}
+	}
+}
+
+@include responsive(desktop) {
+	@for $i from 1 through 10 {
+		.masonry-md-#{$i} {
+			column-count: #{$i};
+		}
+	}
+}
+
+@include responsive(large-desktop) {
+	@for $i from 1 through 10 {
+		.masonry-lg-#{$i} {
+			column-count: #{$i};
+		}
+	}
+}
+
+@include responsive(extra-large-desktop) {
+	@for $i from 1 through 10 {
+		.masonry-xlg-#{$i} {
+			column-count: #{$i};
+		}
+	}
+}
