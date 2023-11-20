@@ -1,9 +1,3 @@
-// function to get a random element from an array
-export const getRandomElement = <T>(arr: T[]): T => {
-	const randomIndex = Math.floor(Math.random() * arr.length);
-	return arr[randomIndex];
-};
-
 // function to open a link in a new tab
 export const openLink = (link: string) => window.open(link, "_blank");
 
@@ -15,21 +9,6 @@ export const copyToClipboard = (text: string) => {
 // function to get a random number between min and max
 export const random = (min: number, max: number) =>
 	Math.floor(Math.random() * (max - min + 1)) + min;
-
-// function to shuffle an array in place
-export const shuffle = (array: any[]) => {
-	let currentIndex = array.length,
-		temporaryValue,
-		randomIndex;
-	while (0 !== currentIndex) {
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}
-	return array;
-};
 
 // function to implement a sleep function
 export const sleep = (seconds: number) =>

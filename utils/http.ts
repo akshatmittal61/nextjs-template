@@ -1,14 +1,16 @@
 import { backendBaseUrl } from "@/constants/variables";
 import axios from "axios";
 
-export const http = axios.create({
+const http = axios.create({
 	baseURL: backendBaseUrl,
 });
 
+export default http;
+
 // ----------------------------------------------------------------
-//                     Default Axios with Token
+//  Default Axios Interceptor with Token - Only use if you need it
 // ----------------------------------------------------------------
-http.interceptors.request.use(
+/* http.interceptors.request.use(
 	async function (Config: any) {
 		const config = Config;
 		const token = localStorage.getItem("token");
@@ -24,4 +26,4 @@ http.interceptors.request.use(
 	function (error: Error) {
 		return Promise.reject(error);
 	}
-);
+); */
