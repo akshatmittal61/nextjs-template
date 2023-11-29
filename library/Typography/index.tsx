@@ -7,7 +7,7 @@ const classes = stylesConfig(styles, "typography");
 
 const Typography: React.FC<TypographyProps> = ({
 	children,
-	family = "josefin-sans",
+	family = "poppins",
 	size = "md",
 	weight = "regular",
 	as = "span",
