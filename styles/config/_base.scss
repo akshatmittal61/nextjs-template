@@ -1,3 +1,5 @@
+@import "./mixins";
+
 *,
 *::before,
 *::after {
@@ -25,6 +27,27 @@
 html {
 	scroll-behavior: smooth;
 	overflow-x: hidden;
+	font-size: 16px;
+
+	@include responsive(phone) {
+		font-size: 12px;
+	}
+
+	@include responsive(tablet) {
+		font-size: 14px;
+	}
+
+	@include responsive(desktop) {
+		font-size: 16px;
+	}
+
+	@include responsive(large-desktop) {
+		font-size: 18px;
+	}
+
+	@include responsive(extra-large-desktop) {
+		font-size: 20px;
+	}
 }
 
 body {
