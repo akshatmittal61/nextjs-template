@@ -13,6 +13,7 @@ module.exports = {
 	extends: ["@commitlint/config-conventional"],
 	rules: {
 		"body-leading-blank": [1, "always"],
+		"body-min-length": [2, "always", 10],
 		"body-max-line-length": [2, "always", 100],
 		"footer-leading-blank": [1, "always"],
 		"footer-max-line-length": [2, "always", 100],

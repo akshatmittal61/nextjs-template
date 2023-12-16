@@ -1,5 +1,5 @@
 import { RESPONSE_MESSAGES } from "@/constants/enum";
-import { ApiRequest, ApiResponse } from "@/interfaces/api";
+import { ApiRequest, ApiResponse } from "@/types/api";
 import User from "@/models/User";
 
 export const getAllUsers = async (req: ApiRequest, res: ApiResponse) => {
