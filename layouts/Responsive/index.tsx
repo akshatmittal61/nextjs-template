@@ -25,17 +25,20 @@ const Row: React.FC<IResponsiveRow> = ({ children, className, ...rest }) => (
 	</div>
 );
 
+// use % to set width
+
 const Col: React.FC<IResponsiveCol> = ({
-	xlg = 100,
-	lg = 100,
-	md = 100,
-	sm = 100,
-	xsm = 100,
+	xlg = 100, // For extra large screens ( >= 1584px )
+	lg = 100, // For large screens ( >= 1312px && < 1584px )
+	md = 100, // For medium screens ( >= 1056px && < 1312px )
+	sm = 100, // For small screens ( >= 672px && < 1056px )
+	xsm = 100, // For extra small screens ( < 672px )
+	className,
 	children,
 	...rest
 }) => (
 	<div
-		className={`col-xlg-${xlg} col-lg-${lg} col-md-${md} col-sm-${sm} col-xsm-${xsm}`}
+		className={`col-xlg-${xlg} col-lg-${lg} col-md-${md} col-sm-${sm} col-xsm-${xsm} ${className}`}
 		{...rest}
 	>
 		{children}

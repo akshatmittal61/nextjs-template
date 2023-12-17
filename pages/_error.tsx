@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Error from "@/components/Error";
+import { frontendBaseUrl } from "@/constants/variables";
 
 const ServerError = () => {
 	const router = useRouter();
@@ -8,6 +9,7 @@ const ServerError = () => {
 		<Error
 			title="Oops, something went wrong."
 			description="Sorry, something went wrong. We're working on getting this fixed as soon as we can."
+			image={`${frontendBaseUrl}/vectors/server-error.svg`}
 			button={{
 				label: "Let's get you home",
 				action: () => router.push("/"),

@@ -4,10 +4,12 @@ import Seo from "@/layouts/Seo";
 import { Button, Typography } from "@/library";
 import { stylesConfig } from "@/utils/functions";
 import styles from "@/styles/Error.module.scss";
+import Image from "next/image";
 
 interface ErrorPageProps {
 	title: string;
 	description: string;
+	image: string;
 	button: {
 		label: string;
 		action: any;
@@ -16,7 +18,12 @@ interface ErrorPageProps {
 
 const classes = stylesConfig(styles, "error");
 
-const Error: React.FC<ErrorPageProps> = ({ title, description, button }) => {
+const Error: React.FC<ErrorPageProps> = ({
+	title,
+	description,
+	image,
+	button,
+}) => {
 	return (
 		<>
 			<Seo
@@ -29,28 +36,39 @@ const Error: React.FC<ErrorPageProps> = ({ title, description, button }) => {
 					description: description,
 					images: [
 						{
-							url: frontend_base_URL + "/images/lost.png",
+							url: image,
 							width: 800,
 							height: 600,
-							alt: "Ivy Pro School",
+							alt: "NextJS Boilerplate",
 							type: "image/png",
 						},
 					],
 				}}
 			/>
-			<div className={classes("")}>
-				<Typography
-					as="h1"
-					size="head-2"
-					weight="bold"
-					className={classes("-title")}
-				>
-					{title}
-				</Typography>
-				<Button variant="filled" onClick={() => button.action()}>
-					{button.label}
-				</Button>
-			</div>
+			<main className={classes("")}>
+				<div className={classes("-content")}>
+					<Typography
+						as="h1"
+						size="head-3"
+						weight="bold"
+						className={classes("-title")}
+					>
+						{title}
+					</Typography>
+					<Button variant="filled" onClick={() => button.action()}>
+						{button.label}
+					</Button>
+				</div>
+				<div className={classes("-image")}>
+					<Image
+						src={image}
+						alt="NextJS Boilerplate"
+						width={800}
+						height={600}
+						layout="responsive"
+					/>
+				</div>
+			</main>
 		</>
 	);
 };

@@ -1,0 +1,28 @@
+:root,
+:root::before,
+:root::after {
+	--transition-time: 0.3s;
+
+	--font-poppins: Poppins, system-ui, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-montserrat: "Montserrat", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+		sans-serif;
+
+	--theme-white: #ffffff;
+	--theme-black: #090909;
+	--theme-purple: #7e48c9;
+	--theme-green: #7ee787;
+	--theme-red: #ffa28b;
+	--theme-blue: #939aff;
+	--theme-yellow: #edcf63;
+	--theme-cyan: #87d4ff;
+	--theme-pink: #b363c7;
+	--theme-grey: #7d8590;
+	--theme-light-grey: #c4c4c4;
+	--theme-black: #0c1015;
+	--theme-white: #ffffff;
+	--theme-bg: #0c1015;
+	--theme-neon: #64ffda;
+	--accent-color: var(--theme-bg);
+}

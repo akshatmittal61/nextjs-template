@@ -5,7 +5,11 @@
 		@each $size in $font-sizes {
 			@each $weight in $font-weights {
 				&--#{$family}-#{$size}-#{$weight} {
-					@include typography($size, $weight, $family);
+					@include typography(
+						$family: $family,
+						$size: $size,
+						$weight: $weight
+					);
 				}
 			}
 		}

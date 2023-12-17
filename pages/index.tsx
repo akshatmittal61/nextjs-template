@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
 	const router = useRouter();
 	return (
 		<main className={classes("")}>
-			<Typography size="head-1" as="h1" weight="bold">
+			<Typography size="head-1" as="h1" weight="semi-bold">
 				NextJS Boilerplate
 			</Typography>
 			<Typography size="lg" as="p">

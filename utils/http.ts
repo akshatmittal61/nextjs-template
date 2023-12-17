@@ -8,7 +8,8 @@ const http = axios.create({
 export default http;
 
 // ----------------------------------------------------------------
-//  Default Axios Interceptor with Token - Only use if you need it
+//  Default Axios Interceptor with Token
+//	Only use if you are using token based authentication with local storage
 // ----------------------------------------------------------------
 /* http.interceptors.request.use(
 	async function (Config: any) {

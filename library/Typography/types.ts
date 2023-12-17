@@ -16,9 +16,17 @@ export type FontSize =
 	| "xxxl"
 	| "head-1"
 	| "head-2"
-	| "head-3";
+	| "head-3"
+	| "head-4";
 
-export type FontWeight = "light" | "regular" | "medium" | "bold" | "extra-bold";
+export type FontWeight =
+	| "extra-light"
+	| "light"
+	| "regular"
+	| "medium"
+	| "semi-bold"
+	| "bold"
+	| "extra-bold";
 
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
 	/** The font family to use */

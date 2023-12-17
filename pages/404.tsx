@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Error from "@/components/Error";
+import { frontendBaseUrl } from "@/constants/variables";
 
 const PageNotFound: React.FC = () => {
 	const router = useRouter();
@@ -8,6 +9,7 @@ const PageNotFound: React.FC = () => {
 		<Error
 			title="Oops! You seem to be lost"
 			description="The page you are looking for does not exist."
+			image={`${frontendBaseUrl}/vectors/not-found.svg`}
 			button={{
 				label: "Let's get you home",
 				action: () => router.push("/"),

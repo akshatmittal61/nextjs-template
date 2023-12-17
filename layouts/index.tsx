@@ -8,7 +8,9 @@ const Layout: React.FC<any> = ({ children }) => {
 			<Seo
 				title="NextJS Boilerplate"
 				description="NextJS Boilerplate with TypeScript, ESLint, Prettier, Jest, React Testing Library, SASS, and more."
-				image="/images/og-image.png"
+				image={`${frontendBaseUrl}/og-image.png`}
+				canonical={frontendBaseUrl}
+				themeColor="#0C1015"
 				icons={["icon", "shortcut icon", "apple-touch-icon"].map(
 					(item) => {
 						return {
@@ -25,7 +27,7 @@ const Layout: React.FC<any> = ({ children }) => {
 					title: "NextJS Boilerplate",
 					description:
 						"NextJS Boilerplate with TypeScript, ESLint, Prettier, Jest, React Testing Library, SASS, and more.",
-					image: "/images/og-image.png",
+					image: `${frontendBaseUrl}/og-image.png`,
 					url: frontendBaseUrl,
 				}}
 				og={{
@@ -35,10 +37,26 @@ const Layout: React.FC<any> = ({ children }) => {
 					images: [
 						{
 							url: "/images/og-image.png",
-							secureUrl: "/images/og-image.png",
+							secureUrl: `${frontendBaseUrl}/og-image.png`,
 							type: "image/png",
 							width: 1200,
 							height: 630,
+							alt: "NextJS Boilerplate",
+						},
+						{
+							url: `${frontendBaseUrl}/favicon-192.png`,
+							secureUrl: `${frontendBaseUrl}/favicon-192.png`,
+							type: "image/png",
+							width: 192,
+							height: 192,
+							alt: "NextJS Boilerplate",
+						},
+						{
+							url: `${frontendBaseUrl}/favicon-512.png`,
+							secureUrl: `${frontendBaseUrl}/favicon-512.png`,
+							type: "image/png",
+							width: 512,
+							height: 512,
 							alt: "NextJS Boilerplate",
 						},
 					],

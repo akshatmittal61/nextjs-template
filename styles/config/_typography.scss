@@ -1,6 +1,6 @@
-// $name: name of the font family var(--font-poppins), var(--font-montserrat)
-// $size: size of the font (xxs, xs, sm, md, lg, xl, xxl, xxxl, head-1, head-2, head-3)
-// $weight: weight of the font (light, regular, medium, bold)
+// $name: name of the font family (var(--font-poppins), var(--font-montserrat))
+// $size: size of the font (xxs, xs, sm, md, lg, xl, xxl, xxxl)
+// $weight: weight of the font (light, regular, medium, semi-bold, bold)
 
 $font-families: ("poppins", "montserrat");
 
@@ -16,20 +16,29 @@ $font-sizes: (
 	"xxxl",
 	"head-1",
 	"head-2",
-	"head-3"
+	"head-3",
+	"head-4"
 );
 
-$font-weights: ("light", "regular", "medium", "bold", "extra-bold");
+$font-weights: (
+	"extra-light",
+	"light",
+	"regular",
+	"medium",
+	"semi-bold",
+	"bold",
+	"extra-bold"
+);
 
-@mixin typography($size: "md", $weight: "regular", $name: "poppins") {
+@mixin typography($family: "Poppins", $size: "md", $weight: "regular") {
 	// font families
 
-	@if $name == "poppins" {
-		font-family: "Poppins", sans-serif;
-	} @else if $name == "montserrat" {
-		font-family: "Montserrat", sans-serif;
+	@if $family == "Montserrat" or $family == "montserrat" or $family == "m" {
+		font-family: var(--font-montserrat);
+	} @else if $family == "Poppins" or $family == "poppins" or $family == "p" {
+		font-family: var(--font-poppins);
 	} @else {
-		font-family: "Poppins", sans-serif;
+		font-family: var(--font-poppins);
 	}
 
 	line-height: 120%;
@@ -58,8 +67,10 @@ $font-weights: ("light", "regular", "medium", "bold", "extra-bold");
 	} @else if $size == "head-1" {
 		font-size: 4rem;
 	} @else if $size == "head-2" {
-		font-size: 2.5rem;
+		font-size: 3rem;
 	} @else if $size == "head-3" {
+		font-size: 2.5rem;
+	} @else if $size == "head-4" {
 		font-size: 2rem;
 	} @else {
 		font-size: 1rem;
@@ -67,15 +78,17 @@ $font-weights: ("light", "regular", "medium", "bold", "extra-bold");
 
 	// font weights
 
-	@if $weight == "light" {
+	@if $weight == "extra-light" {
+		font-weight: 200;
+	} @else if $weight == "light" {
 		font-weight: 300;
 	} @else if $weight == "regular" {
 		font-weight: 400;
 	} @else if $weight == "medium" {
 		font-weight: 500;
-	} @else if $weight == "bold" {
+	} @else if $weight == "semi-bold" {
 		font-weight: 600;
-	} @else if $weight == "extra-bold" {
+	} @else if $weight == "bold" {
 		font-weight: 700;
 	} @else {
 		font-weight: 400;

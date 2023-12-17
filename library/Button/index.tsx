@@ -24,7 +24,7 @@ const Button: React.ForwardRefRenderFunction<
 	{
 		children,
 		className,
-		variant = "outlined",
+		variant = "filled",
 		size = "medium",
 		loading = false,
 		icon,

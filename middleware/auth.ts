@@ -1,6 +1,6 @@
-import { ApiRequest, ApiResponse } from "@/interfaces/api";
 import jwt from "jsonwebtoken";
 import { jwtSecret } from "@/config";
+import { ApiRequest, ApiResponse } from "@/types/api";
 
 const authMiddleware =
 	(next: Function) => (req: ApiRequest, res: ApiResponse) => {
