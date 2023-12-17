@@ -1,8 +1,8 @@
 import { RESPONSE_MESSAGES } from "@/constants/enum";
 import { getAllUsers } from "@/controllers/user";
 import connectDB from "@/db";
-import { ApiRequest, ApiResponse } from "@/interfaces/api";
 import authMiddleware from "@/middleware/auth";
+import { ApiRequest, ApiResponse } from "@/types/api";
 
 const handler = async (req: ApiRequest, res: ApiResponse) => {
 	try {

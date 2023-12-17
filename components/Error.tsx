@@ -3,7 +3,7 @@ import { frontendBaseUrl as frontend_base_URL } from "@/constants/variables";
 import Seo from "@/layouts/Seo";
 import { Button, Typography } from "@/library";
 import { stylesConfig } from "@/utils/functions";
-import styles from "@/styles/Error.module.scss";
+import styles from "@/styles/pages/Error.module.scss";
 import Image from "next/image";
 
 interface ErrorPageProps {

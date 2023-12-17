@@ -83,15 +83,15 @@
 }
 
 @mixin font(
-	$font-family: Poppins,
-	$font-size: inherit,
-	$font-weight: normal,
+	$family: Poppins,
+	$size: inherit,
+	$weight: normal,
 	$line-height: initial,
 	$color: initial,
 	$letter-spacing: initial
 ) {
 	font-family:
-		$font-family,
+		$family,
 		-apple-system,
 		BlinkMacSystemFont,
 		"Segoe UI",
@@ -102,8 +102,8 @@
 		"Open Sans",
 		"Helvetica Neue",
 		sans-serif;
-	font-size: $font-size;
-	font-weight: $font-weight;
+	font-size: $size;
+	font-weight: $weight;
 	line-height: $line-height;
 	color: $color;
 	letter-spacing: $letter-spacing;
