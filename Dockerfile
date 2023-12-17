@@ -4,8 +4,8 @@ FROM node:18
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json, yarn.lock, and .env to the container
-COPY package.json yarn.lock ./
+# Copy package.json to the container
+COPY package.json ./
 
 # ARG NEXT_PUBLIC_BACKEND_BASE_URL
 # ENV NEXT_PUBLIC_BACKEND_BASE_URL=$NEXT_PUBLIC_BACKEND_BASE_URL
