@@ -1,4 +1,4 @@
-export const frontendBaseUrl: string = process.env
-	.NEXT_PUBLIC_FRONTEND_BASE_URL as string;
-export const backendBaseUrl: string = process.env
-	.NEXT_PUBLIC_BACKEND_BASE_URL as string;
+import { url } from "@/config";
+
+export const frontendBaseUrl: string = url.frontend;
+export const backendBaseUrl: string = url.backend;

@@ -1,8 +1,8 @@
 import React from "react";
-import Seo from "./Seo";
+import Seo from "./seo";
 import { frontendBaseUrl } from "@/constants/variables";
 
-const Layout: React.FC<any> = ({ children }) => {
+const Wrapper: React.FC<any> = ({ children }) => {
 	return (
 		<>
 			<Seo
@@ -70,4 +70,4 @@ const Layout: React.FC<any> = ({ children }) => {
 	);
 };
 
-export default Layout;
+export default Wrapper;

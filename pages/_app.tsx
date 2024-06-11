@@ -1,16 +1,18 @@
-import GlobalContext from "@/context/GlobalContext";
-import useContextData from "@/context/useContext";
-import Layout from "@/layouts";
-import "@/styles/globals.scss";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
+import "@/styles/globals.scss";
+import { Wrapper } from "@/layouts";
+import store from "@/context";
 
 export default function App({ Component, pageProps }: AppProps) {
-	const context = useContextData();
+	if (typeof window !== "undefined") AOS.init();
 	return (
-		<GlobalContext.Provider value={context}>
-			<Layout>
+		<Provider store={store}>
+			<Wrapper>
 				<Component {...pageProps} />
-			</Layout>
-		</GlobalContext.Provider>
+			</Wrapper>
+		</Provider>
 	);
 }

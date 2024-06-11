@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Error from "@/components/Error";
-import { frontendBaseUrl } from "@/constants/variables";
+import { Error } from "@/components";
+import { frontendBaseUrl } from "@/constants";
 
 const PageNotFound: React.FC = () => {
 	const router = useRouter();

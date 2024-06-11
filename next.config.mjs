@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,8 +14,8 @@ const nextConfig = {
 		domains: ["localhost"],
 	},
 	sassOptions: {
-		includePaths: [path.join(__dirname, "styles")],
+		includePaths: [path.join(process.cwd(), "styles")],
 	},
 };
 
-module.exports = nextConfig;
+export default nextConfig;

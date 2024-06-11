@@ -1,5 +1,3 @@
-@import "./mixins";
-
 *,
 *::before,
 *::after {
@@ -9,6 +7,8 @@
 	transition: all var(--transition-time) ease-in-out;
 	scroll-behavior: smooth;
 }
+
+@import "./mixins";
 
 html {
 	scroll-behavior: smooth;

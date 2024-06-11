@@ -6,7 +6,7 @@
 			@each $weight in $font-weights {
 				&--#{$family}-#{$size}-#{$weight} {
 					@include typography(
-						$family: $family,
+						$name: $family,
 						$size: $size,
 						$weight: $weight
 					);

@@ -16,26 +16,17 @@ $font-sizes: (
 	"xxxl",
 	"head-1",
 	"head-2",
-	"head-3",
-	"head-4"
+	"head-3"
 );
 
-$font-weights: (
-	"extra-light",
-	"light",
-	"regular",
-	"medium",
-	"semi-bold",
-	"bold",
-	"extra-bold"
-);
+$font-weights: ("light", "regular", "medium", "semi-bold", "bold");
 
-@mixin typography($family: "Poppins", $size: "md", $weight: "regular") {
+@mixin typography($name: "Poppins", $size: "md", $weight: "regular") {
 	// font families
 
-	@if $family == "Montserrat" or $family == "montserrat" or $family == "m" {
+	@if $name == "Montserrat" or $name == "montserrat" or $name == "m" {
 		font-family: var(--font-montserrat);
-	} @else if $family == "Poppins" or $family == "poppins" or $family == "p" {
+	} @else if $name == "Poppins" or $name == "poppins" or $name == "p" {
 		font-family: var(--font-poppins);
 	} @else {
 		font-family: var(--font-poppins);

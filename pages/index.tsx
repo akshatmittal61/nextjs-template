@@ -1,8 +1,8 @@
-import React from "react";
-import { useRouter } from "next/router";
 import { Button, Typography } from "@/library";
-import { stylesConfig } from "@/utils/functions";
 import styles from "@/styles/pages/Home.module.scss";
+import { stylesConfig } from "@/utils/functions";
+import { useRouter } from "next/router";
+import React from "react";
 
 const classes = stylesConfig(styles, "home");
 

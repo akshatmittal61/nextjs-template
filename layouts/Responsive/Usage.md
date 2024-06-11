@@ -32,15 +32,15 @@ The `Responsive.Row` component is a wrapper for the `Col` component. It is neces
 
 The `Responsive.Col` component is a wrapper for the `div` component. It accepts the following props:
 
-| Prop      | Type   | Default | Description                                           |
-| --------- | ------ | ------- | ----------------------------------------------------- |
-| xlg       | number | 100     | The number of columns to span on extra large screens. |
-| lg        | number | 100     | The number of columns to span on large screens.       |
-| md        | number | 100     | The number of columns to span on medium screens.      |
-| sm        | number | 100     | The number of columns to span on small screens.       |
-| xsm       | number | 100     | The number of columns to span on extra small screens. |
-| className | string | ''      | The class name of the column.                         |
-| style     | object | {}      | The style of the column.                              |
+| Prop      | Type   | Default | Description                                    |
+| --------- | ------ | ------- | ---------------------------------------------- |
+| xlg       | number | 100     | The $\%$ width to span on extra large screens. |
+| lg        | number | 100     | The $\%$ width to span on large screens.       |
+| md        | number | 100     | The $\%$ width to span on medium screens.      |
+| sm        | number | 100     | The $\%$ width to span on small screens.       |
+| xsm       | number | 100     | The $\%$ width to span on extra small screens. |
+| className | string | ''      | The class name of the column.                  |
+| style     | object | {}      | The style of the column.                       |
 
 ## Sizes
 

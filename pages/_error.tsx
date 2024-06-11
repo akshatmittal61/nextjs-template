@@ -1,7 +1,6 @@
-import React from "react";
+import { Error } from "@/components";
+import { frontendBaseUrl } from "@/constants";
 import { useRouter } from "next/router";
-import Error from "@/components/Error";
-import { frontendBaseUrl } from "@/constants/variables";
 
 const ServerError = () => {
 	const router = useRouter();

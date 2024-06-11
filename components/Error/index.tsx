@@ -1,10 +1,10 @@
-import React from "react";
-import { frontendBaseUrl as frontend_base_URL } from "@/constants/variables";
-import Seo from "@/layouts/Seo";
+import { frontendBaseUrl } from "@/constants";
+import { Seo } from "@/layouts";
 import { Button, Typography } from "@/library";
-import { stylesConfig } from "@/utils/functions";
 import styles from "@/styles/pages/Error.module.scss";
+import { stylesConfig } from "@/utils/functions";
 import Image from "next/image";
+import React from "react";
 
 interface ErrorPageProps {
 	title: string;
@@ -29,14 +29,14 @@ const Error: React.FC<ErrorPageProps> = ({
 			<Seo
 				title={title}
 				description={description}
-				canonical={frontend_base_URL}
+				canonical={frontendBaseUrl}
 				og={{
-					url: `${frontend_base_URL}/404`,
+					url: `${frontendBaseUrl}/404`,
 					title: title,
 					description: description,
 					images: [
 						{
-							url: image,
+							url: frontendBaseUrl + "/images/lost.png",
 							width: 800,
 							height: 600,
 							alt: "NextJS Boilerplate",
