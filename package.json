@@ -21,8 +21,10 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.2.1",
+		"@types/jsonwebtoken": "^9.0.6",
 		"aos": "^2.3.4",
 		"axios": "^1.6.7",
+		"jsonwebtoken": "^9.0.2",
 		"mongoose": "^8.2.1",
 		"next": "14.1.0",
 		"react": "^18",
