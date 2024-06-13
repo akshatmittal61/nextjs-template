@@ -1,4 +1,5 @@
 import { Button, Typography } from "@/library";
+import { notify } from "@/messages";
 import styles from "@/styles/pages/Home.module.scss";
 import { stylesConfig } from "@/utils/functions";
 import { useRouter } from "next/router";
@@ -20,6 +21,17 @@ const HomePage: React.FC = () => {
 			</Typography>
 			<Button onClick={() => router.push("/500")} variant="filled">
 				Check out Error Boundary
+			</Button>
+			<Button
+				onClick={() => {
+					notify.success("Check success notification");
+					notify.error("Check error notification");
+					notify.info("Check info notification");
+					notify.warn("Check warning notification");
+				}}
+				variant="filled"
+			>
+				Check notification
 			</Button>
 		</main>
 	);

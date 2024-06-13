@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import Seo from "./seo";
 import { frontendBaseUrl } from "@/constants/variables";
 
@@ -66,6 +67,7 @@ const Wrapper: React.FC<any> = ({ children }) => {
 				}}
 			/>
 			{children}
+			<Toaster position="top-center" />
 		</>
 	);
 };

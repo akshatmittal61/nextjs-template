@@ -65,7 +65,6 @@ const Error: React.FC<ErrorPageProps> = ({
 						alt="NextJS Boilerplate"
 						width={800}
 						height={600}
-						layout="responsive"
 					/>
 				</div>
 			</main>
