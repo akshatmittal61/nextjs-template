@@ -1,23 +1,19 @@
-import jwt from "jsonwebtoken";
-import { jwtSecret } from "@/config";
+import { HTTP } from "@/constants";
 import { ApiRequest, ApiResponse } from "@/types/api";
 
-const authMiddleware =
-	(next: Function) => (req: ApiRequest, res: ApiResponse) => {
-		// get x-auth-token from header
-		const token = req.headers["x-auth-token"] + "";
+export const isLoggedIn = (req: ApiRequest, res: ApiResponse, next: any) => {
+	try {
+		const token = req.headers.authorization?.split("Bearer ")[0];
 		if (!token) {
 			return res
-				.status(401)
-				.json({ message: "No token, authorization denied" });
+				.status(HTTP.status.UNAUTHORIZED)
+				.json({ message: HTTP.message.UNAUTHORIZED });
 		}
-		try {
-			const decoded: any = jwt.verify(token, jwtSecret);
-			req.user = decoded.user;
-			return next(req, res);
-		} catch (err) {
-			return res.status(401).json({ message: "Token is not valid" });
-		}
-	};
-
-export default authMiddleware;
+		next();
+	} catch (error: any) {
+		console.error(error);
+		return res
+			.status(HTTP.status.UNAUTHORIZED)
+			.json({ message: HTTP.message.UNAUTHORIZED });
+	}
+};

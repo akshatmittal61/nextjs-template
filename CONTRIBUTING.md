@@ -1,6 +1,6 @@
-# Contributing to City Tales
+# Contributing to NextJS Template
 
-Loving City tales, and want to be a part of team?
+Loving NextJS Template, and want to be a part of team?
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 

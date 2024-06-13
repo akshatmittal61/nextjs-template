@@ -43,18 +43,23 @@ export const slugify = (text: string) =>
 		.replace(/^-+/, "") // Trim - from start of text
 		.replace(/-+$/, ""); // Trim - from end of text
 
-// function to declare while dealing wih modular css
+// function to declare class names while using modular styling files
+interface Styles {
+	[key: string]: string;
+}
+
 export const stylesConfig =
-	(styles: any, prefix: string = "") =>
-	(...args: any[]) => {
-		const classes: any[] = [];
+	(styles: Styles, prefix = "") =>
+	(...args: (string | { [key: string]: boolean })[]) => {
+		const classes: string[] = [];
 		args.forEach((arg) => {
-			if (typeof arg === "string")
+			if (typeof arg === "string") {
 				classes.push(styles[`${prefix}${arg}`]);
-			else if (typeof arg === "object")
+			} else if (typeof arg === "object") {
 				Object.keys(arg).forEach((key) => {
 					if (arg[key]) classes.push(styles[`${prefix}${key}`]);
 				});
+			}
 		});
 		return classes.join(" ");
 	};
@@ -73,3 +78,57 @@ export const omitKeys = (obj: any, keys: string[]) => {
 // function to round off a number to given decimal places
 export const roundOff = (num: number, decimalPlaces: number) =>
 	Math.round(num * 10 ** decimalPlaces) / 10 ** decimalPlaces;
+
+// intersection of 2 arrays
+export const intersection = <T>(a: Array<T>, b: Array<T>) => {
+	const s = new Set(b);
+	return a.filter((x) => s.has(x));
+};
+
+// convert enumerated text to runnning text
+export const enumToText = (text: string) => {
+	return text
+		.split("_")
+		.map((word) => word[0] + word.slice(1).toLowerCase())
+		.join(" ");
+};
+
+// function to check date format: UTC or Locale
+export const checkDateFormat = (date: string): "utc" | "locale" => {
+	if (date.includes("T") && date.includes("Z")) {
+		return "utc";
+	} else {
+		return "locale";
+	}
+};
+
+// function to switch date time between UTC and Locale
+export const switchDateFormat = (
+	date: string,
+	from: "utc" | "locale",
+	to: "utc" | "locale"
+) => {
+	if (from === "utc" && to === "locale") {
+		const utcSeconds = new Date(date).getTime() / 1000;
+		const isoLocal = new Date(
+			utcSeconds * 1000 - new Date().getTimezoneOffset() * 60000
+		)
+			.toISOString()
+			.slice(0, -1);
+		return isoLocal;
+	} else if (from === "locale" && to === "utc") {
+		return new Date(date).toISOString();
+	} else {
+		return date;
+	}
+};
+
+export const sanitizeTimestampToDate = (timestamp: string) => {
+	return checkDateFormat(timestamp) === "utc"
+		? switchDateFormat(timestamp, "utc", "locale").split("T")[0]
+		: timestamp.split("T")[0];
+};
+
+export const generateRandomColor = () => {
+	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};

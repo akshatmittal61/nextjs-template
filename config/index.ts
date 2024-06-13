@@ -49,15 +49,18 @@ export const PORT = configService.safeGet("PORT", 8000);
 type T_URL = "db" | "frontend" | "backend";
 
 export const url: Record<T_URL, string> = {
-	db: configService.safeGet("DB_URI", "mongodb://localhost:27017/nextjs"),
-	frontend: configService.safeGet(
+	db: configService.get("DB_URI"),
+	frontend: configService.safeGet<string>(
 		"NEXT_PUBLIC_FRONTEND_BASE_URL",
 		"http://localhost:3000"
 	),
-	backend: configService.safeGet(
+	backend: configService.safeGet<string>(
 		"NEXT_PUBLIC_BACKEND_BASE_URL",
 		"http://localhost:3000/api/v1"
 	),
 };
 
-export const jwtSecret: string = configService.safeGet("JWT_SECRET", "secret");
+export const jwtSecret: string = configService.safeGet<string>(
+	"JWT_SECRET",
+	"secret"
+);
