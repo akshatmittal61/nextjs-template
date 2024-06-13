@@ -1,4 +1,4 @@
-import { RESPONSE_MESSAGES } from "@/constants";
+import { HTTP } from "@/constants";
 import { db } from "@/db";
 import { ApiRequest, ApiResponse } from "@/types/api";
 
@@ -16,7 +16,7 @@ const handler = async (req: ApiRequest, res: ApiResponse) => {
 	} catch (error) {
 		console.error(error);
 		return res.status(500).json({
-			error: RESPONSE_MESSAGES.INTERNAL_SERVER_ERROR,
+			error: HTTP.message.INTERNAL_SERVER_ERROR,
 		});
 	}
 };
