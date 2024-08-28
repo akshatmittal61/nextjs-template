@@ -1,9 +1,24 @@
-import React from "react";
-import { Toaster } from "react-hot-toast";
-import Seo from "./Seo";
+import { Loader } from "@/components";
 import { frontendBaseUrl } from "@/constants/variables";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
+import { Seo } from "./Seo";
 
 const Wrapper: React.FC<any> = ({ children }) => {
+	const router = useRouter();
+	const [showLoader, setShowLoader] = useState(false);
+	useEffect(() => {
+		router.events.on("routeChangeStart", () => {
+			setShowLoader(true);
+		});
+		router.events.on("routeChangeComplete", () => {
+			setShowLoader(false);
+		});
+		router.events.on("routeChangeError", () => {
+			setShowLoader(false);
+		});
+	}, [router.events]);
 	return (
 		<>
 			<Seo
@@ -66,6 +81,7 @@ const Wrapper: React.FC<any> = ({ children }) => {
 					siteName: "NextJS Boilerplate",
 				}}
 			/>
+			{showLoader ? <Loader /> : null}
 			{children}
 			<Toaster position="top-center" />
 		</>
