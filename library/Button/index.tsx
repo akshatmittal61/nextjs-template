@@ -1,7 +1,7 @@
+import { stylesConfig } from "@/utils";
 import React, { forwardRef } from "react";
-import { IButtonProps } from "./types";
-import { stylesConfig } from "@/utils/functions";
 import styles from "./styles.module.scss";
+import { IButtonProps } from "./types";
 
 const classNames = stylesConfig(styles);
 

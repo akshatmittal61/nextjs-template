@@ -1,3 +1,1 @@
-import * as authMiddleware from "./auth";
-
-export { authMiddleware };
+export * as authMiddleware from "./auth";

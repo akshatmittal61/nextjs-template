@@ -1,7 +1,7 @@
 import { Button, Typography } from "@/library";
 import { notify } from "@/messages";
 import styles from "@/styles/pages/Home.module.scss";
-import { stylesConfig } from "@/utils/functions";
+import { stylesConfig } from "@/utils";
 import { useRouter } from "next/router";
 import React from "react";
 

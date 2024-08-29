@@ -1,4 +1,2 @@
-import * as authHelpers from "./auth.helper";
-import * as userHelpers from "./user.helper";
-
-export { authHelpers, userHelpers };
+export * as authHelpers from "./auth.helper";
+export * as userHelpers from "./user.helper";

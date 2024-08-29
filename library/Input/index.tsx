@@ -1,7 +1,7 @@
+import { stylesConfig } from "@/utils";
 import React, { useRef } from "react";
-import { InputProps } from "./types";
-import { stylesConfig } from "@/utils/functions";
 import styles from "./styles.module.scss";
+import { InputProps } from "./types";
 
 const classes = stylesConfig(styles, "input");
 

@@ -1,5 +1,5 @@
-import { IUser } from "@/types/user";
-import http from "@/utils/http";
+import { IUser } from "@/types";
+import { http } from "@/utils";
 
 export const getAllUsers = async () => {
 	try {

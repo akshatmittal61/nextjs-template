@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { userSelector, userSlice } from "@/context/slices/user.slice";
+import { userSelector, userSlice } from "@/context/slices";
 import * as allHelpers from "@/context/helpers";
 
-const useStore = () => {
+export const useStore = () => {
 	const dispatch = useDispatch<any>();
 
 	const user = useSelector(userSelector);
@@ -19,5 +19,3 @@ const useStore = () => {
 		...allHelpers.userHelpers,
 	};
 };
-
-export default useStore;

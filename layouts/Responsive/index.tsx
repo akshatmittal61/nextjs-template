@@ -45,12 +45,7 @@ const Col: React.FC<IResponsiveCol> = ({
 	</div>
 );
 
-const Responsive: IResponsive = {
+export const Responsive: IResponsive = {
 	Row,
 	Col,
 };
-
-Responsive.Row = Row;
-Responsive.Col = Col;
-
-export default Responsive;

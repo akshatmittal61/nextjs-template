@@ -1,8 +1,8 @@
+import { Typography } from "@/library";
+import { stylesConfig } from "@/utils";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import { stylesConfig } from "@/utils/functions";
-import Image from "next/image";
-import Typography from "@/library/Typography";
 
 interface IAvatarProps {
 	src: string;

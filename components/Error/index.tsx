@@ -2,7 +2,7 @@ import { frontendBaseUrl } from "@/constants";
 import { Seo } from "@/layouts";
 import { Button, Typography } from "@/library";
 import styles from "@/styles/pages/Error.module.scss";
-import { stylesConfig } from "@/utils/functions";
+import { stylesConfig } from "@/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -18,7 +18,7 @@ interface ErrorPageProps {
 
 const classes = stylesConfig(styles, "error");
 
-const Error: React.FC<ErrorPageProps> = ({
+export const Error: React.FC<ErrorPageProps> = ({
 	title,
 	description,
 	image,
@@ -71,5 +71,3 @@ const Error: React.FC<ErrorPageProps> = ({
 		</>
 	);
 };
-
-export default Error;

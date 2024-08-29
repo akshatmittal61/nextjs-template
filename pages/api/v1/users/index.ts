@@ -1,7 +1,7 @@
 import { HTTP } from "@/constants";
-import controllers from "@/controllers";
+import { getAllUsers } from "@/controllers";
 import { db } from "@/db";
-import { ApiRequest, ApiResponse } from "@/types/api";
+import { ApiRequest, ApiResponse } from "@/types";
 
 const handler = async (req: ApiRequest, res: ApiResponse) => {
 	try {
@@ -9,7 +9,7 @@ const handler = async (req: ApiRequest, res: ApiResponse) => {
 		const { method } = req;
 		switch (method) {
 			case "GET":
-				return controllers.user.getAllUsers(req, res);
+				return getAllUsers(req, res);
 			default:
 				res.setHeader("Allow", ["GET"]);
 				return res.status(405).end(`Method ${method} Not Allowed`);

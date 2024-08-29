@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { Seo } from "./Seo";
 
-const Wrapper: React.FC<any> = ({ children }) => {
+export const Wrapper: React.FC<any> = ({ children }) => {
 	const router = useRouter();
 	const [showLoader, setShowLoader] = useState(false);
 	useEffect(() => {
@@ -87,5 +87,3 @@ const Wrapper: React.FC<any> = ({ children }) => {
 		</>
 	);
 };
-
-export default Wrapper;

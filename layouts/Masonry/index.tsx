@@ -1,5 +1,5 @@
+import { stylesConfig } from "@/utils";
 import React from "react";
-import { stylesConfig } from "@/utils/functions";
 import styles from "./styles.module.scss";
 
 const classes = stylesConfig(styles, "masonry");
@@ -13,7 +13,7 @@ interface IMasonry {
 	children: React.ReactNode;
 }
 
-const Masonry: React.FC<IMasonry> = ({
+export const Masonry: React.FC<IMasonry> = ({
 	xsm = 1,
 	sm = 1,
 	md = 2,
@@ -42,5 +42,3 @@ const Masonry: React.FC<IMasonry> = ({
 		</div>
 	);
 };
-
-export default Masonry;

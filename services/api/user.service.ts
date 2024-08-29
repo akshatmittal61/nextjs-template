@@ -1,6 +1,5 @@
 import { User, UserModel } from "@/models";
-import { getObjectFromMongoResponse } from "@/utils/parser";
-import { getNonNullValue } from "@/utils/safety";
+import { getNonNullValue, getObjectFromMongoResponse } from "@/utils";
 
 export const findOne = async (query: Partial<User>): Promise<User | null> => {
 	const res = await UserModel.findOne(query).select("-password");

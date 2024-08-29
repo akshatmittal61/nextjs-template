@@ -1,7 +1,7 @@
+import { stylesConfig } from "@/utils";
 import React from "react";
-import { TypographyProps } from "./types";
-import { stylesConfig } from "@/utils/functions";
 import styles from "./styles.module.scss";
+import { TypographyProps } from "./types";
 
 const classes = stylesConfig(styles, "typography");
 

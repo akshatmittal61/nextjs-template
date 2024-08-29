@@ -1,4 +1,2 @@
-import Error from "./Error";
-import Loader from "./Loader";
-
-export { Error, Loader };
+export * from "./Error";
+export * from "./Loader";

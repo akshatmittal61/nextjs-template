@@ -1,4 +1,4 @@
-import { IUser } from "@/types/user";
+import { IUser } from "@/types";
 import apiUtils from "@/utils/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 

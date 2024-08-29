@@ -1,4 +1,4 @@
-const regex = {
+export const regex = {
 	// email should be a valid email, contain @ and . and have a length of 2-5 characters
 	email: /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/,
 	// password should be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number and one special character
@@ -18,5 +18,3 @@ const regex = {
 	// URL
 	url: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/g,
 };
-
-export default regex;

@@ -1,6 +1,4 @@
-import Masonry from "./Masonry";
-import Responsive from "./Responsive";
-import { Seo } from "./Seo";
-import Wrapper from "./Wrapper";
-
-export { Masonry, Responsive, Seo, Wrapper };
+export * from "./Masonry";
+export * from "./Responsive";
+export * from "./Seo";
+export * from "./Wrapper";

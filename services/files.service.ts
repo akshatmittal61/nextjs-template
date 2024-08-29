@@ -1,4 +1,4 @@
-import { FileExtension } from "@/types/files";
+import { FileExtension } from "@/types";
 
 export const getContentType = (extension: FileExtension) => {
 	switch (extension) {
