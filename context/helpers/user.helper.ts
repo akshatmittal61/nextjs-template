@@ -1,5 +1,5 @@
+import { api } from "@/connections";
 import { IUser } from "@/types";
-import apiUtils from "@/utils/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const updateUser = createAsyncThunk(
@@ -15,7 +15,7 @@ export const updateUser = createAsyncThunk(
 		thunkApi
 	) => {
 		try {
-			const res = await apiUtils.users.updateUser(user_id, data);
+			const res = await api.user.updateUser(user_id, data);
 			return Promise.resolve(res.data);
 		} catch (error: any) {
 			console.error(error);

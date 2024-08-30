@@ -1,5 +1,5 @@
+import { http } from "@/connections";
 import { IUser } from "@/types";
-import { http } from "@/utils";
 
 export const verifyUserIfLoggedIn = async (): Promise<{
 	message: string;
