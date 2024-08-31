@@ -1,4 +1,5 @@
 import { HTTP } from "@/constants";
+import logger from "@/log";
 import { userService } from "@/services/api";
 import { ApiRequest, ApiResponse } from "@/types";
 
@@ -9,10 +10,16 @@ export const getAllUsers = async (req: ApiRequest, res: ApiResponse) => {
 			data: allUsers,
 			message: HTTP.message.SUCCESS,
 		});
-	} catch (error) {
-		console.error(error);
-		return res.status(HTTP.status.INTERNAL_SERVER_ERROR).json({
-			error: HTTP.message.INTERNAL_SERVER_ERROR,
-		});
+	} catch (error: any) {
+		logger.error(error);
+		if (error.message && error.message.startsWith("Invalid input:")) {
+			return res
+				.status(HTTP.status.BAD_REQUEST)
+				.json({ message: HTTP.message.BAD_REQUEST });
+		} else {
+			return res.status(HTTP.status.INTERNAL_SERVER_ERROR).json({
+				message: HTTP.message.INTERNAL_SERVER_ERROR,
+			});
+		}
 	}
 };

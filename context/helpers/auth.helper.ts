@@ -8,7 +8,6 @@ export const fetchAuthenticatedUser = createAsyncThunk(
 			const res = await api.auth.verifyUserIfLoggedIn();
 			return Promise.resolve(res.data);
 		} catch (error: any) {
-			console.error(error);
 			return thunkApi.rejectWithValue(error.response.data);
 		}
 	}

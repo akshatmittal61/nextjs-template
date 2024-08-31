@@ -18,7 +18,6 @@ export const updateUser = createAsyncThunk(
 			const res = await api.user.updateUser(user_id, data);
 			return Promise.resolve(res.data);
 		} catch (error: any) {
-			console.error(error);
 			return thunkApi.rejectWithValue(error.response.data);
 		}
 	}

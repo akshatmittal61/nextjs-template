@@ -10,8 +10,7 @@ export const isLoggedIn = (req: ApiRequest, res: ApiResponse, next: any) => {
 				.json({ message: HTTP.message.UNAUTHORIZED });
 		}
 		next();
-	} catch (error: any) {
-		console.error(error);
+	} catch (error) {
 		return res
 			.status(HTTP.status.UNAUTHORIZED)
 			.json({ message: HTTP.message.UNAUTHORIZED });

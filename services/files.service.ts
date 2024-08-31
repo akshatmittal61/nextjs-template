@@ -20,17 +20,15 @@ export const saveFile = (
 	name: string,
 	extension: FileExtension
 ) => {
-	try {
-		const blob = new Blob([content], { type: getContentType(extension) });
-		const url = window.URL.createObjectURL(blob);
-		const link = document.createElement("a");
-		link.href = url;
-		link.download = `${name}.${extension}`;
-		link.click();
-		window.URL.revokeObjectURL(url);
-		document.body.removeChild(link);
-	} catch (error) {
-		console.error(error);
+	const blob = new Blob([content], { type: getContentType(extension) });
+	const url = window.URL.createObjectURL(blob);
+	const link = document.createElement("a");
+	link.href = url;
+	link.download = `${name}.${extension}`;
+	link.click();
+	window.URL.revokeObjectURL(url);
+	if (link.parentNode) {
+		link.parentNode.removeChild(link);
 	}
 };
 

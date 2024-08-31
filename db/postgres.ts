@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { node_env } from "@/config";
+import logger from "@/log";
 import { PostgresDbCredentials } from "@/types";
 import { Pool, PoolConfig, QueryResult } from "pg";
 
@@ -31,7 +32,7 @@ export const getDatabaseConnectionPool = (
 	const newPool = new Pool(poolConfig);
 
 	newPool.on("error", (err) => {
-		console.error("Unexpected error on idle client", err);
+		logger.error("Unexpected error on idle client", err);
 		process.exit(-1);
 	});
 
@@ -45,20 +46,20 @@ export class PostgresDatabaseManager {
 
 	public async connect(): Promise<void> {
 		if (global.postgresDbPool && global.postgresDbPool.totalCount > 0) {
-			console.info("Postgres Database connection pool already exists");
+			logger.info("Postgres Database connection pool already exists");
 			return;
 		}
 		await global.postgresDbPool.connect();
-		console.info("Connected to Postgres Database");
+		logger.info("Connected to Postgres Database");
 	}
 
 	public async disconnect(): Promise<void> {
 		try {
 			await global.postgresDbPool.end();
 			global.isPostgresDBConnected = false;
-			console.info("Disconnected from Postgres Database");
+			logger.info("Disconnected from Postgres Database");
 		} catch (error) {
-			console.error("Error disconnecting from Postgres Database", error);
+			logger.error("Error disconnecting from Postgres Database", error);
 		}
 	}
 
@@ -76,7 +77,7 @@ export class PostgresDatabaseManager {
 				.replace(/(\r\n|\n|\r)/gm, " ")
 				.replace(/\s+/g, " ")
 				.replace(/\$(\d+)/g, (_, index) => params[index - 1]);
-			console.info(
+			logger.info(
 				"Executed query",
 				JSON.stringify({
 					query: executedQuery,
@@ -86,14 +87,14 @@ export class PostgresDatabaseManager {
 			);
 			return result;
 		} catch (error: any) {
-			console.error(error);
+			logger.error(error);
 
 			// Remove newlines and extra spaces and replace $1, $2, etc. with actual values from params
 			const executedQuery = text
 				.replace(/(\r\n|\n|\r)/gm, "")
 				.replace(/\s+/g, " ")
 				.replace(/\$(\d+)/g, (_, index) => params[index - 1]);
-			console.error(
+			logger.error(
 				"Failed to execute query",
 				JSON.stringify({
 					query: executedQuery,

@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import logger from "@/log";
 import { MongoDbCredentials } from "@/types";
 import mongoose, { Mongoose } from "mongoose";
 
@@ -15,18 +16,18 @@ export class MongoDatabaseManager {
 
 	public async connect() {
 		if (global.isMongoDBConnected && global.mongoDBPool) {
-			console.info("MongoDB is already connected");
+			logger.info("MongoDB is already connected");
 			return;
 		}
 
 		try {
-			console.info("Connecting to MongoDB");
+			logger.info("Connecting to MongoDB");
 			const db = await mongoose.connect(this.url);
-			console.info("MongoDB connected");
+			logger.info("MongoDB connected");
 			global.isMongoDBConnected = db.connections[0].readyState === 1;
 			global.mongoDBPool = db;
 		} catch (error) {
-			console.error("Error connecting to MongoDB", error);
+			logger.error("Error connecting to MongoDB", error);
 			return error;
 		}
 	}
@@ -35,9 +36,9 @@ export class MongoDatabaseManager {
 		try {
 			await global.mongoDBPool.disconnect();
 			global.isMongoDBConnected = false;
-			console.info("MongoDB disconnected");
+			logger.info("MongoDB disconnected");
 		} catch (error) {
-			console.error("Error disconnecting from MongoDB", error);
+			logger.error("Error disconnecting from MongoDB", error);
 		}
 	}
 }
