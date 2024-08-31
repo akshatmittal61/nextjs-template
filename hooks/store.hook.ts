@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { userSelector, userSlice } from "@/context/slices";
+import { userSelector, userSlice } from "@/context/store";
 import * as allHelpers from "@/context/helpers";
 
 export const useStore = () => {
