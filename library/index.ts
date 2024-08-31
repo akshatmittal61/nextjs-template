@@ -1,6 +1,6 @@
-import Avatar from "./Avatar";
+export * from "./Avatar";
 import Button from "./Button";
 import Input from "./Input";
 import Typography from "./Typography";
 
-export { Avatar, Button, Input, Typography };
+export { Button, Input, Typography };
