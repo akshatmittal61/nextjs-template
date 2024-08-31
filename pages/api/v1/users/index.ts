@@ -1,6 +1,7 @@
 import { HTTP } from "@/constants";
 import { getAllUsers } from "@/controllers";
 import { db } from "@/db";
+import logger from "@/log";
 import { ApiRequest, ApiResponse } from "@/types";
 
 const handler = async (req: ApiRequest, res: ApiResponse) => {
@@ -15,7 +16,7 @@ const handler = async (req: ApiRequest, res: ApiResponse) => {
 				return res.status(405).end(`Method ${method} Not Allowed`);
 		}
 	} catch (error) {
-		console.error(error);
+		logger.error(error);
 		return res.status(500).json({
 			error: HTTP.message.INTERNAL_SERVER_ERROR,
 		});
