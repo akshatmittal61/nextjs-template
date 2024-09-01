@@ -8,13 +8,20 @@ class Notify {
 	}
 
 	// if someone call notify.error(), make an error toast
-	error(error: any) {
+	error(error: any, fallback: string = "An error occurred") {
 		if (typeof error === "string") {
 			toast.error(error);
+		} else if (
+			error.response &&
+			error.response.data &&
+			error.response.data.message &&
+			typeof error.response.data.message === "string"
+		) {
+			toast.error(error.response.data.message);
 		} else if (error.message && typeof error.message === "string") {
 			toast.error(error.message);
 		} else {
-			toast.error("An error occurred");
+			toast.error(fallback);
 		}
 	}
 
@@ -29,6 +36,9 @@ class Notify {
 			icon: "⚠️",
 		});
 	}
+
+	// promise
+	promise = toast.promise;
 }
 
 const notify = new Notify();
