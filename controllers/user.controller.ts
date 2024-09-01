@@ -1,6 +1,6 @@
 import { HTTP } from "@/constants";
 import logger from "@/log";
-import { userService } from "@/services/api";
+import { userService } from "@/services";
 import { ApiRequest, ApiResponse } from "@/types";
 
 export const getAllUsers = async (req: ApiRequest, res: ApiResponse) => {
